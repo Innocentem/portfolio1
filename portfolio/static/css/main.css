@@ -1,0 +1,31 @@
+.signup {
+    background-image: url('../images/4.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: normal;
+    opacity: 0.7;
+}
+
+
+
+.login {
+    background-image: url('../images/2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: lighten;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.wrapper {
+    display: flex;
+  }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -1,0 +1,13 @@
+{% extends "base.html" %} {% block head %} {{ super() }} {% endblock %}
+{% block body %}
+<h1>Let's get you cooked in! </h1>
+<form action="/signup" method="post">
+    <P>Name:</P>
+    <p><input type="text" name="name" placeholder="Entre full name" /></p>
+    <p>Email:</p>
+    <p><input type="email", name="email" /></p>
+    <p>Password:</p>
+    <p><input type="password", name="password" /></p>
+    <p><input type="submit" value="signup"></p>
+</form>
+{% endblock %}

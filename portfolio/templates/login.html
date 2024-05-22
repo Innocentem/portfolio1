@@ -1,13 +1,14 @@
-{% extends "base.html" %} {% block head %}  {% endblock %}
+{% extends "base.html" %}
+{% block head %}
+{{ super() }}
+{% endblock %}
 {% block body %}
 <h1>Please login!</h1>
-<form action="/login" method="get">
-    <P>Name:</P>
-    <p><input type="text" name="name" /></p>
+<form action="{{ url_for('auth.login') }}" method="post">
     <p>Email:</p>
-    <p><input type="email", name="email" /></p>
+    <p><input type="email" name="email" required /></p>
     <p>Password:</p>
-    <p><input type="password", name="password" /></p>
+    <p><input type="password" name="password" required /></p>
     <p><input type="submit" value="login"></p>
 </form>
 {% endblock %}

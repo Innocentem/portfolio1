@@ -1,4 +1,75 @@
-{% extends "base.html" %} {% block head %} {{ super() }} {% endblock %}
+{% extends "base.html" %}
+
+{% block head %}
+{{ super() }}
+<style>
+    .featurette-divider {
+        margin: 5rem 0;
+    }
+
+    .featurette {
+        display: flex;
+        align-items: center;
+    }
+
+    .featurette h2 {
+        font-size: 2.5rem;
+    }
+
+    .featurette p {
+        font-size: 1.25rem;
+    }
+
+    .featurette img {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+    }
+</style>
+{% endblock %}
+
 {% block body %}
-    <h1>Welcome to HomeKitch!</h1>
+<div class="container">
+    <h1 class="mt-5">Welcome to HomeKitch!</h1>
+    <p class="lead">If you are looking to up your Home kitchen or lay off some kitchenware for cash <br /> This is the place! </p>
+
+    <hr class="featurette-divider">
+
+    <div class="featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading">Discover Amazing Kitchenware</h2>
+            <p class="lead">Browse through a wide variety of kitchenware items. Whether you're looking for the latest
+                gadgets or unique vintage items, you'll find everything you need to upgrade your kitchen.</p>
+        </div>
+        <div class="col-md-5">
+            <img src="/static/images/woodplate.jpg" alt="Discover Amazing Kitchenware">
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="featurette">
+        <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading">Sell Your Kitchen Items</h2>
+            <p class="lead">Have kitchen items you no longer need? Sell them on HomeKitch and reach a community of
+                buyers looking for quality kitchenware to enhance their cooking space.</p>
+        </div>
+        <div class="col-md-5 order-md-1">
+            <img src="/static/images/shelf.jpg" alt="Sell Your Kitchen Items">
+        </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading">Join Our Community</h2>
+            <p class="lead">Become part of a thriving community of kitchen enthusiasts. Share tips, find inspiration,
+                and connect with others who are passionate about kitchenware and cooking.</p>
+        </div>
+        <div class="col-md-5">
+            <img src="/static/images/hang-cat.jpg" alt="Join Our Community">
+        </div>
+    </div>
+</div>
 {% endblock %}

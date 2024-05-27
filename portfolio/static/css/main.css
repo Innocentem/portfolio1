@@ -1,31 +1,17 @@
-.signup {
-    background-image: url('../images/4.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-blend-mode: normal;
-    opacity: 0.7;
+/* static/css/styles.css */
+
+body {
+    background-image: url('../images/bg.jpg'); /* Adjust the path based on your directory structure */
+    background-size: cover; /* Ensures the image covers the whole page */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-attachment: fixed; /* Makes the background image fixed when scrolling */
+    background-position: center center; /* Centers the background image */
+    color: #dacd1d; /* Sets default text color to white for better contrast */
+    font-family: Arial, sans-serif; /* Sets a default font */
 }
 
-
-
-.login {
-    background-image: url('../images/2.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-blend-mode: lighten;
+/* Additional styling for other elements if needed */
+.container {
+    padding: 20px;
+    border-radius: 8px; /* Rounds the corners of the container */
 }
-
-.img-fluid {
-    max-width: 100%;
-    height: auto;
-}
-
-.wrapper {
-    display: flex;
-  }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;

@@ -1,7 +1,8 @@
 {% extends "base.html" %}
-
 {% block head %}
 {{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/navmain.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 <style>
     .featurette-divider {
         margin: 5rem 0;
@@ -31,7 +32,8 @@
 {% block body %}
 <div class="container">
     <h1 class="mt-5">Welcome to HomeKitch!</h1>
-    <p class="lead">If you are looking to up your Home kitchen or lay off some kitchenware for cash <br /> This is the place! </p>
+    <p class="lead">If you are looking to up your Home kitchen or lay off some kitchenware for cash 
+            This is the place! </p>
 
     <hr class="featurette-divider">
 
@@ -55,7 +57,7 @@
                 buyers looking for quality kitchenware to enhance their cooking space.</p>
         </div>
         <div class="col-md-5 order-md-1">
-            <img src="/static/images/shelf.jpg" alt="Sell Your Kitchen Items">
+            <img src="/static/images/glass_plate.jpg" alt="Sell Your Kitchen Items">
         </div>
     </div>
 
@@ -68,7 +70,7 @@
                 and connect with others who are passionate about kitchenware and cooking.</p>
         </div>
         <div class="col-md-5">
-            <img src="/static/images/hang-cat.jpg" alt="Join Our Community">
+            <img src="/static/images/community.png" alt="Join Our Community">
         </div>
     </div>
 </div>

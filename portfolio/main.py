@@ -1,8 +1,9 @@
-from flask import Blueprint, render_template, url_for, session, redirect, request, flash
+from flask import Blueprint, render_template, url_for, session, redirect, request, flash, current_app
 from werkzeug.utils import secure_filename
 import os
 from .models import db, Item
 from .decorators import login_required
+import requests
 
 main = Blueprint('main', __name__)
 
@@ -45,3 +46,30 @@ def sell():
 @main.route("/buy")
 def buy():
     return "This is a buyer's page"
+
+@main.route("/contact", methods=["GET", "POST"])
+def contact():
+    if request.method == "POST":
+        name = request.form.get("name")
+        email = request.form.get("email")
+        message = request.form.get("message")
+
+        telegram_message = f"Name: {name}\nEmail: {email}\nMessage: {message}"
+        send_telegram_message(telegram_message)
+
+        flash("Thank you for your message. We'll get back to you shortly.", "success")
+        return redirect(url_for("main.contact"))
+
+    return render_template("contact.html")
+
+def send_telegram_message(message):
+    token = current_app.config['TELEGRAM_BOT_TOKEN']
+    chat_id = current_app.config['TELEGRAM_CHAT_ID']
+    url = f"https://api.telegram.org/bot{token}/sendMessage"
+    data = {
+        "chat_id": chat_id,
+        "text": message
+    }
+    response = requests.post(url, data=data)
+    if response.status_code != 200:
+        flash(f"Oopsie daisie! Can't reach Telegram: {response.text}", "danger")

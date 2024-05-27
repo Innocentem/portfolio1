@@ -1,6 +1,7 @@
 {% extends "base.html" %} 
 {% block head %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 {% endblock %}
 {% block body %}
 <h1>Let's get you cooked in! </h1>

@@ -1,0 +1,24 @@
+/* styles.css */
+
+.custom-navbar {
+    background-color: #343a40; /* Darker background */
+}
+
+.custom-navbar-text {
+    color: #ffd700 !important; 
+}
+
+.custom-navbar a.navbar-brand {
+    margin-right: 20px; /* Adjust spacing between links */
+}
+
+/* Optional: Adjust hover state for better interactivity */
+.custom-navbar a.navbar-brand:hover {
+    color: #fff700 !important; /* Brighter yellow on hover */
+}
+
+/* Additional padding and styling if needed */
+.custom-navbar {
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+}

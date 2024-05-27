@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 {% endblock %}
 {% block body %}
-<h1>Let's get you cooked in! </h1>
+<h1>Let's get you cooked in!</h1>
 <form action="{{ url_for('auth.signup') }}" method="post">
     <P>Name:</P>
     <p><input type="text" name="name" placeholder="Entre full name" /></p>

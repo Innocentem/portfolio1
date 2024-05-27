@@ -1,18 +1,26 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
-import requests
+from dotenv import load_dotenv
+import os
 
 db = SQLAlchemy()
 
 def create_app():
+    # Load environment variables from bots.env file
+    load_dotenv('bots.env')
+
     app = Flask(__name__)
 
-    app.config['SECRET_KEY'] = 'Myportfolioproject1'
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
+    # Load configurations from environment variables
+    app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')
 
     # Telegram bot configuration
-    app.config['TELEGRAM_BOT_TOKEN'] = '7433541289:AAGWNYj7hct-clPALUElTNZAe0vfDMHVTNs'
-    app.config['TELEGRAM_CHAT_ID'] = '1517989742'
+    app.config['TELEGRAM_BOT_TOKEN'] = os.getenv('TELEGRAM_BOT_TOKEN')
+    app.config['TELEGRAM_CHAT_ID'] = os.getenv('TELEGRAM_CHAT_ID')
+
+    if not app.config['SQLALCHEMY_DATABASE_URI']:
+        raise RuntimeError("SQLALCHEMY_DATABASE_URI must be set")
 
     db.init_app(app)
 

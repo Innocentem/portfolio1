@@ -57,7 +57,7 @@ def contact():
         telegram_message = f"Name: {name}\nEmail: {email}\nMessage: {message}"
         send_telegram_message(telegram_message)
 
-        flash("Thank you for your message. We'll get back to you shortly.", "success")
+        flash("Thank you for your message. We'll reply by e-mail shortly.", "success")
         return redirect(url_for("main.contact"))
 
     return render_template("contact.html")

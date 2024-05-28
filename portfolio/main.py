@@ -57,10 +57,10 @@ def contact():
         telegram_message = f"Name: {name}\nEmail: {email}\nMessage: {message}"
         send_telegram_message(telegram_message)
 
-        flash("Thank you for your message. We'll reply by e-mail shortly.", "success")
-        return redirect(url_for("main.contact"))
+        flash("Thank you for your message. We'll get back to you shortly.", "success")
+        return render_template("contact.html", submitted=True)
 
-    return render_template("contact.html")
+    return render_template("contact.html", submitted=False)
 
 def send_telegram_message(message):
     token = current_app.config['TELEGRAM_BOT_TOKEN']
@@ -72,4 +72,4 @@ def send_telegram_message(message):
     }
     response = requests.post(url, data=data)
     if response.status_code != 200:
-        flash(f"Oopsie daisie! Can't reach Telegram: {response.text}", "danger")
+        flash(f"An error occurred while sending your message : {response.text}", "danger")

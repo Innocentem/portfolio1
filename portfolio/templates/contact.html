@@ -9,6 +9,8 @@
 <div class="container mt-5">
     <h1>Contact Us</h1>
     <p>Have any queries or inquiries? Feel free to contact us using the form below.</p>
+
+    {% if not submitted %}
     <form action="{{ url_for('main.contact') }}" method="POST">
         <div class="form-group">
             <label for="name">Name</label>
@@ -24,6 +26,8 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+    {% endif %}
+
     {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}
     <div class="mt-3">

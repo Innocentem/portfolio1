@@ -73,3 +73,5 @@ def send_telegram_message(message):
     response = requests.post(url, data=data)
     if response.status_code != 200:
         flash(f"An error occurred while sending your message : {response.text}", "danger")
+
+

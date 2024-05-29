@@ -1,5 +1,5 @@
 body {
-    background-image: url('../images/laptop.jpg'); /* Adjust the path based on your directory structure */
+    background-image: url('../images/woodplate.jpg'); /* Adjust the path based on your directory structure */
     background-size: cover; /* Ensures the image covers the whole page */
     background-repeat: no-repeat; /* Prevents the image from repeating */
     background-attachment: fixed; /* Makes the background image fixed when scrolling */

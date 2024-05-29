@@ -15,3 +15,8 @@ body {
     padding: 20px;
     border-radius: 8px; /* Rounds the corners of the container */
 }
+
+.icon {
+    font-size: 30px; /* Set the size to 24 pixels */
+    color: yellowgreen;
+}

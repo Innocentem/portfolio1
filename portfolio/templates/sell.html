@@ -1,8 +1,10 @@
 {% extends "base.html" %}
+
 {% block head %}
 {{ super() }}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/sell.css') }}">
 {% endblock %}
+
 {% block body %}
 <div class="container">
 	<div class="row justify-content-center">
@@ -18,10 +20,18 @@
 					<textarea class="form-control" id="description" name="description" rows="3" required></textarea>
 				</div>
 				<div class="form-group">
+					<h2><label for="location">Seller's Address</label></h2>
+					<input type="text" class="form-control" id="location" name="location" required>
+				</div>
+				<div class="form-group">
 					<h2><label for="image">Upload Image</label></h2>
 					<div class="custom-file">
 						<input type="file" class="custom-file-input" id="image" name="image" accept="image/*" required>
 						<label class="custom-file-label" for="image">Choose file</label>
+					</div>
+					<div class="form-group">
+						<h2><label for="contact">Seller's Contact</label></h2>
+						<input type="number" class="form-control" id="contact" name="contact" required>
 					</div>
 				</div>
 				<button type="submit" class="btn btn-primary btn-block">Post Item</button>
@@ -40,7 +50,6 @@
 	integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 	crossorigin="anonymous"></script>
 <script>
-	// Update the label of the custom file input with the selected file name
 	$('.custom-file-input').on('change', function (event) {
 		var inputFile = event.currentTarget;
 		$(inputFile).parent().find('.custom-file-label').html(inputFile.files[0].name);

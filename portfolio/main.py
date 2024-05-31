@@ -25,17 +25,18 @@ def sell():
     if request.method == "POST":
         title = request.form.get('title')
         description = request.form.get('description')
+        location = request.form.get('location')
         image = request.files.get('image')
 
-        if not title or not description or not image:
+        if not title or not description or not location or not image:
             flash("All fields are required!")
             return redirect(request.url)
 
         filename = secure_filename(image.filename)
-        filepath = os.path.join('static/uploads', filename)
+        filepath = os.path.join(current_app.root_path, 'static', 'uploads', filename)
         image.save(filepath)
 
-        new_item = Item(title=title, description=description, image_url=filepath, user_id=session['user_id'])
+        new_item = Item(title=title, description=description, location=location, image_url=filename, user_id=session['user_id'])
         db.session.add(new_item)
         db.session.commit()
 
@@ -43,9 +44,12 @@ def sell():
     
     return render_template("sell.html")
 
+
+
 @main.route("/buy")
 def buy():
-    return "This is a buyer's page"
+    items = Item.query.all()  # Fetch all items from the database
+    return render_template("listing.html", items=items)
 
 @main.route("/contact", methods=["GET", "POST"])
 def contact():
@@ -72,6 +76,4 @@ def send_telegram_message(message):
     }
     response = requests.post(url, data=data)
     if response.status_code != 200:
-        flash(f"An error occurred while sending your message : {response.text}", "danger")
-
-
+        flash(f"An error occurred while sending your message: {response.text}", "danger")

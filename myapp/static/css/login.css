@@ -1,0 +1,68 @@
+body {
+    background-image: url('../images/bg1.jpg'); /* Adjust the path based on your directory structure */
+    background-size: cover; /* Ensures the image covers the whole page */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-attachment: fixed; /* Makes the background image fixed when scrolling */
+    background-position: center center; /* Centers the background image */
+    color: hwb(44 6% 7%); /* Sets default text color to yellow for better contrast */
+    font-family: Arial, sans-serif; /* Sets a default font */
+}
+
+.custom-container {
+    padding: 50px 15px;
+    max-width: 800px;
+    margin: auto;
+    background-color: rgba(255, 255, 255, 0.349); /* Semi-transparent background for readability */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.custom-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.custom-form {
+    background: #648d8f7c;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.custom-form .form-group {
+    margin-bottom: 20px;
+}
+
+.custom-form .btn-primary {
+    width: 100%;
+}
+
+.custom-footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Additional styling for other elements if needed */
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.icon {
+    font-size: 30px; /* Adjust the size as needed */
+    color: hsl(39, 71%, 41%); 
+}
+
+/* Optional: Hide the featurette-image class if it is not needed */
+.featurette-image {
+    display: none;
+}
+
+.footer a {
+    color: #b68c19;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 24px;
+}

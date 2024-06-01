@@ -1,0 +1,44 @@
+{% extends "base3.html" %}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+{% endblock %}
+{% block body %}
+<div class="custom-container">
+    <div class="custom-header">
+        <h1>Let's get you cooked in!</h1>
+        <p>Join our kitchenware community by signing up below:</p>
+    </div>
+    <div class="custom-form">
+        <form action="{{ url_for('auth.signup') }}" method="post">
+            <div class="form-group">
+                <label for="inputName">Name</label>
+                <input type="text" class="form-control" id="inputName" name="name" placeholder="Enter full name"
+                    required>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail">Email</label>
+                <input type="email" class="form-control" id="inputEmail" name="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword">Password</label>
+                <input type="password" class="form-control" id="inputPassword" name="password" placeholder="Password"
+                    required>
+            </div>
+            <button type="submit" class="btn btn-primary">Sign up</button>
+        </form>
+    </div>
+</div>
+<center>
+<footer class="footer">
+    <div class="container">
+        <p>HomeKitch</p>
+        <div>
+            <a href="https://github.com/Innocentem" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:mwbzinno@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+    </div>
+</footer>
+</center>
+{% endblock %}

@@ -1,7 +1,6 @@
-{% extends "base.html" %}
+{% extends "materialize_base.html" %}
 
 {% block head %}
-{{ super() }}
 <link rel="stylesheet" href="{{ url_for('static', filename='css/sell.css') }}">
 {% endblock %}
 
@@ -39,17 +38,6 @@
 		</div>
 	</div>
 </div>
-<center>
-<footer class="footer">
-    <div class="container">
-        <p>HomeKitch</p>
-        <div>
-            <a href="https://github.com/Innocentem" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="mailto:mwbzinno@gmail.com"><i class="fas fa-envelope"></i></a>
-        </div>
-    </div>
-</footer>
-</center>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 	integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

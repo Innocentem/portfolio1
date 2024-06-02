@@ -1,55 +1,44 @@
 body {
+    font-family: 'Montserrat', sans-serif;
     color: #f0a606;
-    background-color: rgba(0, 0, 0, 0.4);
-    background-image: url('/static/images/windy.jpg'); /* Background image for the body */
+    background-color: rgba(0, 0, 0, 0.096);
+    background-image: url('/static/images/flower.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
-/* Navbar styles */
 .custom-navbar {
-    background-color: rgba(0, 0, 0, 0.979); /* Semi-transparent darker background */
+    background-color: rgba(235, 176, 15, 0);
     padding: 10px 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.custom-navbar-text {
-    color: #ffd700 !important; /* Custom navbar text color */
+.custom-navbar .brand-logo, .custom-navbar .sidenav-trigger {
+    color: #ffd9007e !important;
 }
 
-.custom-navbar a.navbar-brand {
-    margin-right: 20px; /* Adjust spacing between links */
-    color: #ffd700 !important; /* Custom navbar text color */
-}
-
-/* Optional: Adjust hover state for better interactivity */
-.custom-navbar a.navbar-brand:hover {
-    color: #fff700 !important; /* Brighter yellow on hover */
+.custom-navbar .brand-logo:hover {
+    color: #fff700 !important;
 }
 
 .icon {
-    font-size: 30px; /* Set the size to 30 pixels */
-    color: rgb(155, 98, 33); /* Icon color */
+    font-size: 30px;
+    color: rgb(253, 139, 9);
 }
 
-/* General styles for the entire page */
 .featurette {
-    display: flex;
-    align-items: center;
-    background: rgba(255, 255, 255, 0.4); /* Semi-transparent white background */
+    background: rgba(255, 255, 255, 0);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    margin-bottom: 20px; /* Add space between featurettes */
+    margin-bottom: 20px;
 }
 
 .featurette img {
-    width: 40%; /* Reduce image size */
-    max-width: 300px; /* Ensure images are not too large */
-    height: auto;
-    border-radius: 10px; /* Round corners of images */
+    width: 100%;
+    border-radius: 10px;
 }
 
 .featurette:hover {
@@ -57,19 +46,42 @@ body {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
 }
 
-
-.footer {
-    background-image: url('/static/images/laptop.jpg');
-    background-size: cover;
-    background-position: center;
-    color: rgb(120, 206, 7);
-    padding: 30px 0;
-    text-align: center;
+.featurette-link {
+    text-decoration: none;
+    color: inherit;
 }
 
-.footer a {
+.featurette-link:hover .featurette {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0);
+}
+
+.custom-footer {
+    text-align: center;
+    background-color: rgba(235, 176, 15, 0);
+    padding: 10px 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.custom-footer a {
     color: #95e90e;
     text-decoration: none;
-    margin: 0 10px;
-    font-size: 24px;
+    margin: 0 ;
+    font-size: 20px;
+}
+
+h1 {
+    font-weight: 600;
+    color: #d8ca0b;
+    text-align: center;
+    margin-top: 50px;
+}
+
+p {
+    text-align: center;
+    font-size: 1.2em;
+}
+
+.container {
+    margin-top: 50px;
 }

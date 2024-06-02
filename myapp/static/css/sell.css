@@ -7,7 +7,7 @@ body {
     color: #046acf;
     text-align: center;
     background-color: #f5f5f5;
-    background-image: url('/static/images/design.jpg');
+    background-image: url('/static/images/bg3.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -17,22 +17,27 @@ body {
     max-width: 800px;
     margin: 100px auto;
     padding: 30px;
-    background: rgba(255, 255, 255, 0.8); /* Increased transparency */
+    background: rgba(255, 255, 255, 0.7); /* Increased transparency */
     border-radius: 10px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Stronger shadow for more depth */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0); /* Stronger shadow for more depth */
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin-bottom: 30px;
     color: #333;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
 }
 
 .form-group h2 {
-    font-size: 1.5rem;
+    font-size: 5rem;
     margin-top: 20px;
     color: #046acf;
+}
+
+.form-group h2 label {
+    font-size: 1.2rem; 
+    color: #1a1615;
 }
 
 .custom-file {

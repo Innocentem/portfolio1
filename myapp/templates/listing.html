@@ -5,30 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HomeKitch</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/listing.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <style>
-        /* Custom CSS for circular images */
-        .circle-img {
-            border-radius: 50%;
-            overflow: hidden;
-        }
-
-        .contact-info {
-            display: none;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="container">
-        <h1>What's for sale?</h1>
-        <p>Dive in and find what's for sale today</p>
+        <h1>What's for Sale Today?</h1>
+        <p><b>Dive in and explore the options!</b></p>
         <div class="row">
             {% for item in items %}
             <div class="col s12 m6 l4">
                 <div class="card">
-                    <div class="card-image circle-img">
+                    <div class="card-image">
                         <img class="responsive-img" src="{{ url_for('static', filename='uploads/' ~ item.image_url) }}"
                             onclick="showPhoneNumber('{{ item.id }}')">
                     </div>
@@ -46,9 +37,9 @@
         function showPhoneNumber(itemId) {
             var contactInfo = document.getElementById('phoneNumber_' + itemId);
             contactInfo.style.display = 'block';
+            contactInfo.classList.add('animated', 'fadeIn');
         }
     </script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 

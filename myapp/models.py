@@ -15,5 +15,6 @@ class Item(db.Model):
     location = db.Column(db.String(100))
     image_url = db.Column(db.String(200))
     contact = db.Column(db.String(20))
+    sold = db.Column(db.Boolean, default=False)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     user = db.relationship('User', back_populates='items')

@@ -1,21 +1,14 @@
 {% extends "materialize_base.html" %}
-
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/navmain.css') }}">
+{% endblock %}
 {% block body %}
-<nav class="navbar custom-navbar">
-    <div class="nav-wrapper">
-        <a href="{{ url_for('main.home')}}" class="brand-logo"><i class="fas fa-home icon"></i> HomeKitch</a>
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        <ul class="right hide-on-med-and-down">
-            <li><a href="{{ url_for('auth.login') }}"><i class="fas fa-sign-in-alt icon"></i> Login</a></li>
-        </ul>
-    </div>
-</nav>
-
-<ul class="sidenav" id="mobile-demo">
-    <li><a href="{{ url_for('auth.login') }}"><i class="fas fa-sign-in-alt icon"></i> Login</a></li>
-</ul>
-
 <div class="container">
+    {% if session.user_id %}
+    <div class="right">
+        <a href="{{ url_for('auth.signout') }}" class="btn waves-effect waves-light red darken-2">Logout</a>
+    </div>
+    {% endif %}
     <h1 class="center-align mt-5">Welcome to HomeKitch!</h1>
     <p class="center-align lead">If you are looking to up your Home kitchen or sell kitchenware, this is the place!</p>
 
@@ -47,6 +40,27 @@
         </div>
     </a>
 </div>
+{% if not session.user_id %}
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <div class="card-panel red lighten-3">
+                <span class="white-text">You're not in yet. Please <a href="{{ url_for('auth.login') }}"
+                        class="white-text">login</a> or <a href="{{ url_for('auth.signup') }}"
+                        class="white-text">register</a>.</span>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
 
-
+{% block scripts %}
+<script>
+    // Initialize Materialize components
+    document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('.sidenav');
+        var instances = M.Sidenav.init(elems);
+    });
+</script>
 {% endblock %}

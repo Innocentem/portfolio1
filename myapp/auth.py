@@ -69,3 +69,8 @@ def login():
         session['user_id'] = user.id
         return redirect(url_for('main.user'))  # Redirect to main.index after successful login
     return render_template("login.html")
+
+@auth.route('/signout', methods=["GET"])
+def signout():
+    session.pop('user_id', None)  # Clear user session
+    return redirect(url_for('main.home'))  # Redirect to the main page or wherever you want after signout

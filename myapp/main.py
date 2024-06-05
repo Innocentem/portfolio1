@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, url_for, session, redirect, request, flash, current_app
+from flask import Blueprint, render_template, request, redirect, url_for, session, flash, current_app
 from werkzeug.utils import secure_filename
 import os
 from .models import db, Item, User
@@ -39,7 +39,7 @@ def sell():
         db.session.add(new_item)
         db.session.commit()
 
-        return redirect(url_for('main.user'))
+        return redirect(url_for('main.in_user'))
     
     return render_template("sell.html")
 
@@ -54,7 +54,8 @@ def buy():
 def in_user():
     user_id = session.get('user_id')
     user = User.query.get(user_id)
-    return render_template("profile.html", user=user)
+    items = Item.query.filter_by(user_id=user_id).all()
+    return render_template("profile.html", user=user, items=items)
 
 @main.route("/contact", methods=["GET", "POST"])
 def contact():
@@ -71,10 +72,6 @@ def contact():
 
     return render_template("contact.html", submitted=False)
 
-@main.route("/profile")
-def profile():
-    return render_template("profile.html")
-
 def send_telegram_message(message):
     token = current_app.config['TELEGRAM_BOT_TOKEN']
     chat_id = current_app.config['TELEGRAM_CHAT_ID']
@@ -86,3 +83,11 @@ def send_telegram_message(message):
     response = requests.post(url, data=data)
     if response.status_code != 200:
         flash(f"An error occurred while sending your message: {response.text}", "danger")
+
+@main.route('/mark_sold/<int:item_id>')
+def mark_sold(item_id):
+    item = Item.query.get_or_404(item_id)
+    item.sold = True  # Update the sold attribute to True
+    db.session.commit()  # Commit the changes to the database
+    flash('Item marked as sold!', 'success')
+    return redirect(url_for('main.home'))

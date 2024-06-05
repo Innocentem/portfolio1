@@ -30,10 +30,10 @@ p {
 .card-image {
     position: relative;
     overflow: hidden;
-    border-radius: 50%;
+    border-radius: 10px; /* Adjust border-radius if needed */
     margin: 20px auto 0 auto;
-    width: 200px;
-    height: 200px;
+    width: 100%; /* Make sure the card image fills the container */
+    height: 200px; /* Adjust height as needed */
 }
 
 .card-image img {
@@ -42,6 +42,18 @@ p {
     object-fit: cover;
     cursor: pointer;
     transition: transform 0.3s ease-in-out;
+}
+
+.badge {
+    position: absolute;
+    top: 10px; /* Adjust top position to move the badge up or down */
+    right: 10px; /* Adjust right position to move the badge left or right */
+    background-color: red; /* Adjust background color of the badge */
+    color: white; /* Adjust text color of the badge */
+    padding: 5px 10px; /* Adjust padding of the badge */
+    border-radius: 5px; /* Adjust border-radius of the badge */
+    font-size: 14px; /* Adjust font size of the badge */
+    z-index: 1; /* Ensure the badge is above the card content */
 }
 
 .card-image img:hover {

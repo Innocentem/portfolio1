@@ -1,3 +1,6 @@
+from werkzeug.utils import secure_filename
+import os
+from flask import current_app
 from flask import Blueprint, render_template, request, redirect, url_for, session
 from .models import User
 from . import db
@@ -11,35 +14,42 @@ def signup():
         name = request.form.get('name')
         email = request.form.get('email')
         password = request.form.get('password')
+        image = request.files.get('image')
 
         # Debugging output to check form data
-        print(f"Name: {name}, Email: {email}, Password: {password}")
+        print(f"Name: {name}, Email: {email}, Password: {password}, Image: {image}")
 
-        if not name or not email or not password:
-            return "Please fill out all fields"
+        if not name or not email or not password or not image:
+            return "Please fill out all fields and upload an image."
 
         user = User.query.filter_by(email=email).first()
-
         if user:
             return "Email address already exists"
-        
+
+        filename = secure_filename(image.filename)
+        filepath = os.path.join(current_app.root_path, 'static', 'uploads', filename)
+        image.save(filepath)
+
         try:
             new_user = User(
                 email=email,
                 name=name,
-                password=generate_password_hash(password, method='pbkdf2:sha256')
+                password=generate_password_hash(password, method='pbkdf2:sha256'),
+                image_url=filename  # Save image filename to user
             )
-            
             db.session.add(new_user)
             db.session.commit()
-            
-            return redirect(url_for('auth.login'))
+
+            # Log in the user by setting the session
+            session['user_id'] = new_user.id
+
+            return redirect(url_for('main.in_user'))  # Redirect to profile page
         except Exception as e:
-            # Print exception to console for debugging
             print(f"Error creating new user: {e}")
             return "An error occurred while creating a new user."
-    
+
     return render_template('signup.html')
+
 
 @auth.route("/login", methods=["GET", "POST"])
 def login():

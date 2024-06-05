@@ -1,49 +1,101 @@
 body {
     font-family: 'Montserrat', sans-serif;
     color: #f0a606;
-    background-color: rgba(0, 0, 0, 0.096);
-    background-image: url('/static/images/flower.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background: url('../images/ripple.jpg') center/cover no-repeat;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
-.custom-navbar {
+.custom-navbar, .footer {
     background-color: rgba(235, 176, 15, 0);
     padding: 10px 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.8);
 }
 
-.custom-navbar .brand-logo, .custom-navbar .sidenav-trigger {
-    color: #ffd9007e !important;
+.custom-navbar .brand-logo,
+.custom-navbar .sidenav-trigger,
+.icon {
+    color: #ffae00a1;
 }
 
 .custom-navbar .brand-logo:hover {
-    color: #fff700 !important;
+    color: #7bff00;
 }
 
 .icon {
-    font-size: 30px;
-    color: rgb(253, 139, 9);
+    font-size: 40px;
+    color: rgb(253, 168, 9);
+}
+
+.content {
+    position: relative;
+    text-align: center;
+    color: rgb(189, 129, 17);
+    padding: 20px;
+}
+
+.cover-content {
+    text-align: center;
+    margin: 0 auto 40px; /* Centralize and add margin-bottom */
+    padding: 0 20px; /* Ensure padding */
+}
+
+.cover-content h1 {
+    font-size: 3em;
+    margin: 20px 0; /* Add some margin */
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.cover-content p {
+    font-size: 1.2em;
+    margin: 10px 0; /* Keep some margin for spacing */
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-large {
+    background-color: #ffd9007e;
+    color: black;
+    font-size: 1.2em;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.btn-large:hover {
+    background-color: #fff700;
+    transform: scale(1.05);
 }
 
 .featurette {
-    background: rgba(255, 255, 255, 0);
+    background: rgba(71, 58, 12, 0.486);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    z-index: 1;
 }
 
 .featurette img {
     width: 100%;
     border-radius: 10px;
+    transition: transform 0.3s;
 }
 
 .featurette:hover {
     transform: translateY(-10px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.featurette:hover img {
+    transform: scale(1.05);
 }
 
 .featurette-link {
@@ -56,32 +108,27 @@ body {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0);
 }
 
-.custom-footer {
-    text-align: center;
-    background-color: rgba(235, 176, 15, 0);
-    padding: 10px 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.custom-footer a {
-    color: #95e90e;
-    text-decoration: none;
-    margin: 0 ;
-    font-size: 20px;
-}
-
 h1 {
     font-weight: 600;
     color: #d8ca0b;
     text-align: center;
-    margin-top: 50px;
+    margin: 20px 0; /* Reduce top and bottom margin */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 p {
     text-align: center;
     font-size: 1.2em;
+    margin: 10px 0; /* Reduce margin for paragraphs */
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .container {
-    margin-top: 50px;
+    padding: 0 20px; /* Ensure padding for content */
+}
+
+.divider {
+    margin: 20px 0; /* Increase divider margin */
 }

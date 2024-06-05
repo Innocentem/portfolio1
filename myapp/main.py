@@ -49,6 +49,13 @@ def buy():
     items = Item.query.all()  # Fetch all items from the database
     return render_template("listing.html", items=items)
 
+@main.route("/in_user")
+@login_required
+def in_user():
+    user_id = session.get('user_id')
+    user = User.query.get(user_id)
+    return render_template("profile.html", user=user)
+
 @main.route("/contact", methods=["GET", "POST"])
 def contact():
     if request.method == "POST":
@@ -63,6 +70,10 @@ def contact():
         return render_template("contact.html", submitted=True)
 
     return render_template("contact.html", submitted=False)
+
+@main.route("/profile")
+def profile():
+    return render_template("profile.html")
 
 def send_telegram_message(message):
     token = current_app.config['TELEGRAM_BOT_TOKEN']

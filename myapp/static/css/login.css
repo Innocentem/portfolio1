@@ -1,70 +1,87 @@
-body {
-    background-image: url('../images/bg1.jpg'); /* Adjust the path based on your directory structure */
-    background-size: cover; /* Ensures the image covers the whole page */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    background-attachment: fixed; /* Makes the background image fixed when scrolling */
-    background-position: center center; /* Centers the background image */
-    color: hwb(44 6% 7%); /* Sets default text color to yellow for better contrast */
-    font-family: Arial, sans-serif; /* Sets a default font */
+/* Define CSS variables for dark mode */
+:root {
+    --background-color: #121212;
+    --text-color: #f1bb08;
+    --primary-color: #e2970b00;
+    --secondary-color: #856828;
+    --navbar-bg-color: rgba(252, 135, 2, 0);
+    --navbar-text-color: #046acf;
+    --navbar-hover-text-color: #0056b3;
+    --footer-bg-color: rgba(0, 0, 0, 0.5);
+    --footer-text-color: #e6c300;
 }
 
-.custom-container {
-    padding: 50px 15px;
-    max-width: 800px;
-    margin: auto;
-    background-color: rgba(255, 255, 255, 0.349); /* Semi-transparent background for readability */
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.custom-navbar {
+    background-color: var(--navbar-bg-color);
+    padding: 0 20px;
 }
 
-.custom-header {
-    text-align: center;
-    margin-bottom: 30px;
-    background-color: rgba(255, 187, 0, 0);
+.custom-navbar .brand-logo,
+.custom-navbar .sidenav-trigger,
+.custom-navbar a {
+    color: var(--navbar-text-color);
 }
 
-
-.custom-form {
-    background: #648d8f7c;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.custom-navbar .brand-logo:hover,
+.custom-navbar .sidenav-trigger:hover,
+.custom-navbar a:hover {
+    color: var(--navbar-hover-text-color);
 }
 
-.custom-form .form-group {
-    margin-bottom: 20px;
-}
-
-.custom-form .btn-primary {
-    width: 100%;
-}
-
-.custom-footer {
-    text-align: center;
-    margin-top: 20px;
-}
-
-/* Additional styling for other elements if needed */
-.icon-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+html, body {
     height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
 }
 
-.icon {
-    font-size: 30px; /* Adjust the size as needed */
-    color: hsl(39, 71%, 41%); 
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    background-image: url('/static/images/vintage.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 100vh; /* Ensure the body fills the viewport height */
+    overflow-x: hidden; /* Hide horizontal overflow */
 }
 
-/* Optional: Hide the featurette-image class if it is not needed */
-.featurette-image {
-    display: none;
+.content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.footer a {
-    color: #b68c19;
-    text-decoration: none;
-    margin: 0 10px;
-    font-size: 24px;
+.container {
+    background-color: rgba(2, 0, 0, 0.705);
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 450px; /* Adjust this value as needed */
+    width: 100%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0);
+}
+
+h1, h2, p {
+    color: rgb(255, 123, 0);
+}
+
+.btn {
+    background-color: blue;
+}
+
+footer.page-footer {
+    background-color: rgba(211, 119, 15, 0);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+a.white-text {
+    color: var(--text-color);
+}
+
+/* Adjust form label styles */
+.input-field label {
+    font-size: 1rem; /* Adjust font size as needed */
+    color: rgb(241, 177, 0); /* Ensure readable color */
 }

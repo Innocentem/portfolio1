@@ -12,6 +12,26 @@
 </head>
 
 <body>
+    <nav class="custom-navbar">
+        <div class="nav-wrapper">
+            <a href="{{ url_for('main.sell') }}" class="flicker-icon"><i class="fas fa-plus-circle"></i> Post an
+                Item</a>
+            <ul class="custom-navbar right">
+                <li><a href="{{ url_for('main.home') }}"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="{{ url_for('main.in_user') }}"><i class="fas fa-user"></i> Profile</a></li>
+                <li><a href="{{ url_for('main.contact') }}"><i class="fas fa-question-circle"></i> Help</a></li>
+            </ul>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        </div>
+    </nav>
+
+
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="{{ url_for('main.home') }}"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="{{ url_for('main.in_user') }}"><i class="fas fa-user"></i> Profile</a></li>
+        <li><a href="{{ url_for('main.contact') }}"><i class="fas fa-question-circle"></i> Help</a></li>
+    </ul>
+
     <div class="container">
         <h1>What's for Sale Today?</h1>
         <p><b>Dive in and explore the options!</b></p>
@@ -36,12 +56,39 @@
             {% endfor %}
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">HomeKitch</h5>
+                    <p class="grey-text text-lighten-4">Your one-stop shop for kitchen needs.</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Links</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="{{ url_for('main.home') }}">Home</a></li>
+                        <li><a class="grey-text text-lighten-3" href="{{ url_for('main.in_user') }}">Profile</a></li>
+                        <li><a class="grey-text text-lighten-3" href="{{ url_for('main.contact') }}">Help</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <script>
         function showPhoneNumber(itemId) {
             var contactInfo = document.getElementById('phoneNumber_' + itemId);
             contactInfo.style.display = 'block';
             contactInfo.classList.add('animated', 'fadeIn');
         }
+
+        // Initialize Materialize components
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.sidenav');
+            var instances = M.Sidenav.init(elems);
+        });
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>

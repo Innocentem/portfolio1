@@ -5,66 +5,88 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 
 <body>
-    <div class="container">
-        <div class="profile-header">
-            <div class="profile-image">
-                {% if user.image_url %}
-                <img src="{{ url_for('static', filename='uploads/' + user.image_url) }}" alt="Profile Picture">
-                {% else %}
-                <img src="{{ url_for('static', filename='uploads/default_image.jpg') }}" alt="Default Profile Picture">
-                {% endif %}
-            </div>
-            <h1>{{ user.name }}</h1>
-        </div>
-        <div class="profile-info">
-            <p>Email: {{ user.email }}</p>
-            <!-- Add more profile information as needed -->
-        </div>
-
-        <div class="user-items">
-            <h2>Your Current Items</h2>
-            {% if items %}
-            <ul>
-                {% for item in items %}
-                <li>
-                    <h3>{{ item.title }}</h3>
-                    <p>{{ item.description }}</p>
-                    <p>Location: {{ item.location }}</p>
-                    <p>Contact: {{ item.contact }}</p>
-                    {% if item.image_url %}
-                    <img src="{{ url_for('static', filename='uploads/' + item.image_url) }}" alt="{{ item.title }}">
-                    {% endif %}
-                    <!-- Button to mark item as sold -->
-                    <button onclick="markAsSold('{{ item.id }}' )">Mark as Sold</button>
-                </li>
-                {% endfor %}
+    <nav class="navbar">
+        <div class="nav-wrapper container">
+            <a href="{{ url_for('main.home')}}" class="brand-logo">HomeKitch</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="{{ url_for('main.buy') }}"><i class="fas fa-shopping-cart"></i></a></li>
+                <li><a href="{{ url_for('main.sell') }}"><i class="fas fa-cart-arrow-down"></i></a></li>
+                <li><a href="{{ url_for('main.in_user') }}">Profile</a></li>
             </ul>
-            {% else %}
-            <p>You have no items listed for sale.</p>
-            {% endif %}
         </div>
+    </nav>
 
-        <!-- Font Awesome icon links inside the container div -->
-        <a href="{{ url_for('main.sell') }}" class="sell-link">
-            <i class="fas fa-cart-arrow-down"></i>
-        </a>
-        <a href="{{ url_for('main.buy') }}" class="buy-link">
-            <i class="fas fa-shopping-cart"></i>
-        </a>
-
-        <!-- Font Awesome icon link for home -->
-        <a href="{{ url_for('main.home') }}" class="home-link">
-            <i class="fas fa-home"></i>
-        </a>
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6">
+                <div class="card-panel profile-header">
+                    <div class="row valign-wrapper">
+                        <div class="col s4">
+                            <div class="profile-image">
+                                {% if user.image_url %}
+                                <img src="{{ url_for('static', filename='uploads/' + user.image_url) }}" alt="Profile Picture"
+                                    class="circle responsive-img">
+                                {% else %}
+                                <img src="{{ url_for('static', filename='uploads/default_image.jpg') }}" alt="Default Profile Picture"
+                                    class="circle responsive-img">
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="col s8">
+                            <div class="profile-info">
+                                <h4>{{ user.name }}</h4>
+                                <p>Email: {{ user.email }}</p>
+                                <!-- Add more profile information as needed -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col s12 m6">
+                <div class="items">
+                    <h2>Your Current Items</h2>
+                    {% if items %}
+                    <ul class="collection">
+                        {% for item in items %}
+                        <li class="collection-item avatar">
+                            <i class="material-icons circle">insert_chart</i>
+                            <span class="title">{{ item.title }}</span>
+                            <p>{{ item.description }}<br>
+                                Location: {{ item.location }}<br>
+                                Contact: {{ item.contact }}
+                            </p>
+                            {% if item.image_url %}
+                            <img src="{{ url_for('static', filename='uploads/' + item.image_url) }}" alt="{{ item.title }}"
+                                class="circle">
+                            {% endif %}
+                            <!-- Button to mark item as sold -->
+                            <a href="#!" class="secondary-content btn waves-effect waves-light red lighten-1"
+                                onclick="markAsSold('{{ item.id }}')">Mark as Sold</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                    {% else %}
+                    <p>You have no items listed for sale.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
     </div>
-    <p class="note">Feel free to use the icons below to navigate</p>
 
-    <!-- JavaScript function to mark item as sold -->
+    <div class="fixed-action-btn">
+        <ul>
+            <li><a href="{{ url_for('main.home') }}" class="btn-floating orange darken-2"><i
+                        class="fas fa-home"></i></a></li>
+        </ul>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script>
         function markAsSold(itemId) {
             // Send AJAX request to mark item as sold
@@ -74,19 +96,19 @@
                     'Content-Type': 'application/json'
                 }
             })
-            .then(response => {
-                if (response.ok) {
-                    // Item marked as sold, you can update UI here if needed
-                    console.log('Item marked as sold');
-                    // Reload the page to reflect changes (optional)
-                    window.location.reload();
-                } else {
-                    console.error('Failed to mark item as sold');
-                }
-            })
-            .catch(error => {
-                console.error('Error marking item as sold:', error);
-            });
+                .then(response => {
+                    if (response.ok) {
+                        // Item marked as sold, you can update UI here if needed
+                        console.log('Item marked as sold');
+                        // Reload the page to reflect changes (optional)
+                        window.location.reload();
+                    } else {
+                        console.error('Failed to mark item as sold');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error marking item as sold:', error);
+                });
         }
     </script>
 </body>

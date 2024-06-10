@@ -7,6 +7,7 @@ class User(db.Model):
     name = db.Column(db.String(100))
     image_url = db.Column(db.String(200))
     items = db.relationship('Item', back_populates='user')
+    is_admin = db.Column(db.Boolean, default=False)
 
 class Item(db.Model):
     id = db.Column(db.Integer, primary_key=True)

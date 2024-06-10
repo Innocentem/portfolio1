@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrator Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav>
+    <div class="nav-wrapper">
+        <a href="#" class="brand-logo">Administrator Panel</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="#">Dashboard</a></li>
+            <li><a href="#">Manage Items</a></li>
+            <li><a href="#">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Sidebar -->
+<ul id="slide-out" class="sidenav">
+    <li><a href="#">Dashboard</a></li>
+    <li><a href="#">Manage Items</a></li>
+    <li><a href="#">Logout</a></li>
+</ul>
+<a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+
+<!-- Main Content Area -->
+<div class="container">
+    <h3>Manage Items</h3>
+    <!-- Item Listing -->
+    <ul class="collection">
+        <li class="collection-item">Item 1</li>
+        <li class="collection-item">Item 2</li>
+        <!-- Add more items dynamically if needed -->
+    </ul>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.sidenav');
+        var instances = M.Sidenav.init(elems);
+    });
+</script>
+</body>
+</html>

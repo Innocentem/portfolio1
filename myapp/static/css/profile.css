@@ -1,93 +1,31 @@
+/* Complete profile.css */
+
+:root {
+    --background-color: #121212;
+    --text-color: #ffffff;
+    --card-color: #1e1e1e;
+    --navbar-color: #333333; /* Darker color for the navbar */
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #121212;
-    color: #ffffff;
-    margin: 0;
-    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
-.container {
-    max-width: 800px;
-    margin: 20px auto;
-    background-color: #1e1e1e;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    position: relative; /* Add position: relative to allow positioning of absolute elements inside */
+.navbar {
+    background-color: var(--navbar-color);
+    color: var(--text-color); /* Text color */
 }
 
-.profile-header {
-    text-align: center;
-    margin-bottom: 20px;
+.card-panel {
+    background-color: var(--card-color);
 }
 
-.profile-image {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: 0 auto 20px;
-}
-
-.profile-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.profile-info {
-    text-align: center;
-}
-
-.profile-info p {
-    margin-bottom: 10px;
-    color: #b0b0b0;
-}
-
-/* Responsive styles */
-@media (max-width: 768px) {
-    .container {
-        padding: 10px;
-    }
-
-    .profile-image {
-        width: 120px;
-        height: 120px;
-    }
-}
-
-.sell-link {
-    position: fixed;
-    bottom: 20px;
-    left: 20px;
-    color: #ffffff;
-    font-size: 24px;
-    text-decoration: none;
-    z-index: 9999; /* Ensure it's above other content */
-}
-
-.buy-link {
-    position: fixed;
-    bottom: 20px;
-    right: 60px; /* Adjust the right position to avoid overlapping with the home icon */
-    color: #ffffff;
-    font-size: 24px;
-    text-decoration: none;
-    z-index: 9999; /* Ensure it's above other content */
-}
-
-.home-link {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    color: #ffffff;
-    font-size: 24px;
-    text-decoration: none;
-    z-index: 9999; /* Ensure it's above other content */
+.items .collection-item {
+    background-color: var(--card-color);
+    color: var(--text-color);
 }
 
 .note {
-    text-align: center;
-    color: #b0b0b0;
-    margin-top: 20px;
+    color: var(--text-color);
 }

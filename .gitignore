@@ -1,2 +1,3 @@
 # .gitignore
 bots.env
+make_admin.py

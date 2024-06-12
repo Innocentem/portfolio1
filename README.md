@@ -1,31 +1,33 @@
-Homekitch
+# HomeKitch
 
 Welcome to HomeKitch, a simple Flask web app that connects buyers and sellers of kitchenware.
 
-Introduction
+![HomeKitch Screenshot](./screenshot.jpg)
+
+## Introduction
 
 HomeKitch is designed to create a seamless marketplace for kitchen enthusiasts. Sellers can list kitchenware items they want to sell, and buyers can browse through the listings to find what they need. The platform includes user authentication to ensure a secure and personalized experience.
 
-Deployed Site: https://homekitch.onrender.com/
+**Deployed Site:** [HomeKitch Live](https://homekitch.onrender.com)
 
-Final Project Blog Article: Read the Full Story
+**Final Project Blog Article:** [Read the Full Story](http://your-blog-article-url.com)
 
-Author's LinkedIn: https://www.linkedin.com/in/mwebaze-innocent-a96467166/
+**Author's LinkedIn:** [Mwebaze Innocent](https://www.linkedin.com/in/mwebaze-innocent-a96467166/)
 
-Features
+## Features
+- **User Authentication:** Sign up and log in securely.
+- **Item Listings:** Sellers can post kitchenware items for sale.
+- **Browsing:** Buyers can view and search for available items.
 
-User Authentication: Sign up and log in securely.
-Item Listings: Sellers can post kitchenware items for sale.
-Browsing: Buyers can view and search for available items.
-
-Installation
+## Installation
 
 To set up the project locally, follow these steps:
 
 1. Clone the repository:
+   ```bash
+   git clone https://github.com/Innocentem/Portfolio1.git
+   cd Portfolio1
 
-    git clone https://github.com/Innocentem/Portfolio1.git
-    cd Portfolio1
 
 2. Install the required dependencies:
 

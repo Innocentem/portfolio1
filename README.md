@@ -62,7 +62,7 @@ Challenges and Learnings:
 
     Building HomeKitch was a rewarding yet challenging experience. One of the main challenges I faced was implementing secure user authentication. Ensuring that user data is protected and that the authentication process is both robust and user-friendly required significant research and testing.
 
-        ![HomeKitch Screenshot](./screenshot2.jpg)
+![HomeKitch Screenshot](./screenshot2.JPG)
 
     Another challenge was designing a clean and intuitive user interface. I wanted the platform to be easy to navigate for both buyers and sellers, which involved multiple iterations and user feedback to get right.
 
@@ -77,4 +77,4 @@ While HomeKitch is currently functional, there are several features and improvem
 
     Mobile Optimization: Improve the mobile experience to make it easier for users to browse and list items on the go.
 
-    ![HomeKitch Screenshot](./listing.jpg)
+![HomeKitch Screenshot](./listing.JPG)

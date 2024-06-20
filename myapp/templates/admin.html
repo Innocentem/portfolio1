@@ -6,6 +6,17 @@
     <title>Administrator Page</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        .item-image {
+            max-width: 100px;
+            margin-right: 20px;
+        }
+        .item-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    </style>
 </head>
 <body>
 
@@ -34,9 +45,20 @@
     <h3>Manage Items</h3>
     <!-- Item Listing -->
     <ul class="collection">
-        <li class="collection-item">Item 1</li>
-        <li class="collection-item">Item 2</li>
-        <!-- Add more items dynamically if needed -->
+        {% for item in items %}
+            <li class="collection-item">
+                <div class="item-actions">
+                    <img src="{{ url_for('static', filename='uploads/' ~ item.image_url) }}" alt="{{ item.title }}" class="item-image">
+                    <span>{{ item.title }}</span>
+                    <div>
+                        <form action="{{ url_for('main.delete_item', item_id=item.id) }}" method="POST" style="display: inline;">
+                            <button type="submit" class="btn-flat"><i class="material-icons">delete</i></button>
+                        </form>
+                        <a href="{{ url_for('main.mark_sold', item_id=item.id) }}" class="btn-flat"><i class="material-icons">check</i></a>
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
     </ul>
 </div>
 

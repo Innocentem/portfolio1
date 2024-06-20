@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +9,6 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
-
 <body>
     <nav class="navbar">
         <div class="nav-wrapper container">
@@ -31,11 +29,9 @@
                         <div class="col s4">
                             <div class="profile-image">
                                 {% if user.image_url %}
-                                <img src="{{ url_for('static', filename='uploads/' + user.image_url) }}" alt="Profile Picture"
-                                    class="circle responsive-img">
+                                <img src="{{ url_for('static', filename='uploads/' + user.image_url) }}" alt="Profile Picture" class="circle responsive-img">
                                 {% else %}
-                                <img src="{{ url_for('static', filename='uploads/default_image.jpg') }}" alt="Default Profile Picture"
-                                    class="circle responsive-img">
+                                <img src="{{ url_for('static', filename='uploads/default_image.jpg') }}" alt="Default Profile Picture" class="circle responsive-img">
                                 {% endif %}
                             </div>
                         </div>
@@ -44,6 +40,11 @@
                                 <h4>{{ user.name }}</h4>
                                 <p>Email: {{ user.email }}</p>
                                 <!-- Add more profile information as needed -->
+                                {% if user.is_admin %}
+                                <a href="{{ url_for('main.admin') }}" class="btn-floating red">
+                                    <i class="fas fa-user-shield"></i>
+                                </a>
+                                {% endif %}
                             </div>
                         </div>
                     </div>
@@ -63,12 +64,10 @@
                                 Contact: {{ item.contact }}
                             </p>
                             {% if item.image_url %}
-                            <img src="{{ url_for('static', filename='uploads/' + item.image_url) }}" alt="{{ item.title }}"
-                                class="circle">
+                            <img src="{{ url_for('static', filename='uploads/' + item.image_url) }}" alt="{{ item.title }}" class="circle">
                             {% endif %}
                             <!-- Button to mark item as sold -->
-                            <a href="#!" class="secondary-content btn waves-effect waves-light red lighten-1"
-                                onclick="markAsSold('{{ item.id }}')">Mark as Sold</a>
+                            <a href="#!" class="secondary-content btn waves-effect waves-light red lighten-1" onclick="markAsSold('{{ item.id }}')">Mark as Sold</a>
                         </li>
                         {% endfor %}
                     </ul>
@@ -82,8 +81,7 @@
 
     <div class="fixed-action-btn">
         <ul>
-            <li><a href="{{ url_for('main.home') }}" class="btn-floating orange darken-2"><i
-                        class="fas fa-home"></i></a></li>
+            <li><a href="{{ url_for('main.home') }}" class="btn-floating orange darken-2"><i class="fas fa-home"></i></a></li>
         </ul>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

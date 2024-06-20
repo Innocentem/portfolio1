@@ -146,7 +146,7 @@ def delete_item(item_id):
     flash("Item deleted successfully!", "success")
     return redirect(url_for('main.admin'))
 
-@main.route("/Admin")
+@main.route("/admin")
 @admin_required
 def admin():
     """
@@ -154,4 +154,5 @@ def admin():
     
     Renders the admin.html template.
     """
-    return render_template("admin.html")
+    items = Item.query.all()
+    return render_template("admin.html", items=items)

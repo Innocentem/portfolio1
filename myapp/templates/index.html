@@ -1,145 +1,165 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HomeKitch</title>
-    <!-- External CSS libraries -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-    <!-- Local CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+<head>
+    <title>HomeKitch</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- External CSS and Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet"  href="{{ url_for('static', filename='assets/css/main.css')}}">
 </head>
-<body>
-    <!-- Main navigation bar -->
-    <nav class="navbar custom-navbar">
-        <div class="nav-wrapper">
-            <a href="{{ url_for('main.home')}}" class="brand-logo"><i class="fas fa-home icon"></i> HomeKitch</a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="{{ url_for('auth.login') }}"><i class="fas fa-sign-in-alt icon"></i> Login</a></li>
-                <li><a href="{{ url_for('main.in_user') }}"><i class="fas fa-user icon"></i> Profile</a></li>
-            </ul>
-        </div>
+
+<body class="landing">
+
+    <!-- Header -->
+    <header id="header" class="alt">
+        <h1><a href="{{ url_for('main.home') }}">HomeKitch</a></h1>
+        <a href="#nav">Menu</a>
+    </header>
+
+    <!-- Navigation -->
+    <nav id="nav">
+        <ul class="links">
+            <li><a href="{{ url_for('main.home') }}">Home</a></li>
+            <li><a href="{{ url_for('auth.login') }}">Login</a></li>
+            <li><a href="{{ url_for('main.in_user') }}">Profile</a></li>
+        </ul>
     </nav>
 
-    <!-- Side navigation for mobile -->
-    <ul class="sidenav" id="mobile-demo">
-        <li><a href="{{ url_for('auth.login') }}"><i class="fas fa-sign-in-alt icon"></i> Login</a></li>
-        <li><a href="{{ url_for('main.in_user') }}"><i class="fas fa-user icon"></i> Profile</a></li>
-    </ul>
+    <!-- Banner Section -->
+    <section id="banner">
+        <i class="fas fa-utensils fa-3x"></i>
+        <h2>Welcome to HomeKitch!</h2>
+        <p>Your destination for premium kitchenware and home kitchen upgrades.</p>
+        <ul class="actions">
+            <li><a href="{{ url_for('auth.signup') }}" class="button big special">Join Us Today</a></li>
+        </ul>
+    </section>
 
-    <!-- Main content wrapper -->
-    <div class="background">
-        <!-- Welcome section with inline styles -->
-        <section class="welcome-section" style="background-color: #12121200; color: #cf5b0e; padding: 100px 0;">
-            <div class="container">
-                {% if session.user_id %}
-                    <div class="right">
-                        <a href="{{ url_for('auth.signout') }}" class="btn waves-effect waves-light red darken-2">Logout</a>
-                    </div>
-                {% endif %}
-                
-                <div class="center-align mt-5">
-                    <h1>Welcome to HomeKitch!</h1>
-                    <p class="lead">If you are looking to up your Home kitchen or sell kitchenware, this is the place!</p>
+    <!-- Feature Section One: Discover Amazing Kitchenware -->
+    <section id="one" class="wrapper style1">
+        <div class="inner">
+            <article class="feature left">
+                <span class="image">
+                    <img src="{{ url_for('static', filename='images/kitchen1.jpg') }}" alt="Kitchenware">
+                </span>
+                <div class="content">
+                    <h2>Discover Amazing Kitchenware</h2>
+                    <p>Explore a wide variety of kitchen gadgets and vintage items, perfect for upgrading your kitchen space.</p>
+                    <ul class="actions">
+                        <li><a href="#" class="button alt">Shop Now</a></li>
+                    </ul>
                 </div>
-            </div>
-        </section>
+            </article>
+        </div>
+    </section>
 
-        <!-- Discover section with additional classes -->
-        <section class="discover-section" style="background-color: #1e1e1e00; color: #db5c12; padding: 100px 0;">
-            <div class="container">
-                <div class="row featurette">
-                    <div class="col s12 m7">
-                        <h2 class="featurette-heading">Discover Amazing Kitchenware</h2>
-                        <p class="lead">Browse through a wide variety of kitchenware items. Whether you're looking for the latest gadgets or unique vintage items, you'll find everything you need to upgrade your kitchen.</p>
-                    </div>
+    <!-- Feature Section Two: Join Our Community -->
+    <section id="two" class="wrapper style1">
+        <div class="inner">
+            <article class="feature right">
+                <span class="image">
+                    <img src="{{ url_for('static', filename='images/community.jpg') }}" alt="Community">
+                </span>
+                <div class="content">
+                    <h2>Join Our Community</h2>
+                    <p>Connect with fellow kitchen enthusiasts, share tips, and explore a world of culinary inspiration.</p>
+                    <ul class="actions">
+                        <li><a href="#" class="button alt">Learn More</a></li>
+                    </ul>
                 </div>
-            </div>
-        </section>
+            </article>
+        </div>
+    </section>
 
-        <!-- Join section with additional styles -->
-        <section class="join-section" style="background-color: #12121200; color: #f5872d; padding: 100px 0;">
-            <div class="container">
-                <div class="row featurette">
-                    <div class="col s12 m7">
-                        <h2 class="featurette-heading">Join Our Community</h2>
-                        <p class="lead">Become part of a thriving community of kitchen enthusiasts. Share tips, find inspiration, and connect with others who are passionate about kitchenware and cooking.</p>
-                    </div>
-                </div>
+    <!-- Image Grid Section -->
+    <section id="two" class="wrapper special">
+        <div class="inner">
+            <header class="major narrow">
+                <h2>Explore Our Kitchenware Collection</h2>
+                <p>Find everything you need for your home kitchen in one place.</p>
+            </header>
+            <div class="image-grid">
+                <a href="#" class="image"><img src="{{ url_for('static', filename='images/item1.jpg') }}" alt="Kitchen Item 1"></a>
+                <a href="#" class="image"><img src="{{ url_for('static', filename='images/item2.jpg') }}" alt="Kitchen Item 2"></a>
+                <a href="#" class="image"><img src="{{ url_for('static', filename='images/item3.jpg') }}" alt="Kitchen Item 3"></a>
+                <a href="#" class="image"><img src="{{ url_for('static', filename='images/item4.jpg') }}" alt="Kitchen Item 4"></a>
+                <a href="#" class="image"><img src="{{ url_for('static', filename='images/item5.jpg') }}" alt="Kitchen Item 5"></a>
+                <a href="#" class="image"><img src="{{ url_for('static', filename='images/item6.jpg') }}" alt="Kitchen Item 6"></a>
             </div>
-        </section>
+            <ul class="actions">
+                <li><a href="#" class="button big alt">See All Products</a></li>
+            </ul>
+        </div>
+    </section>
 
-        <!-- Signup form section with inline styles -->
-        <section id="signup-section" class="signup-section" style="background-color: #1e1e1e; color: #d36c18; padding: 100px 0;"></section>
-            <div class="container">
-                <div class="signup-container">
-                    <div class="row">
-                        <div class="col s12">
-                            <div class="card" style="background: rgba(214, 127, 14, 0); padding: 20px; border-radius: 10px;">
-                                <div class="card-content">
-                                    <span class="card-title" style="color: #97c713;">Let's get you cooked in!</span>
-                                    <p>Join our kitchenware community by signing up below</p>
-                                    <p>And explore!</p>
-                                    <form action="{{ url_for('auth.signup') }}" method="post" enctype="multipart/form-data" style="max-width: 400px; margin: auto; padding: 20px; border-radius: 10px; background: #ffffff;">
-                                        <div class="input-field">
-                                            <input type="text" id="inputName" class="validate" name="name" placeholder="Enter full name" required>
-                                            <label for="inputName">Name</label>
-                                        </div>
-                                        <div class="input-field">
-                                            <input type="email" id="inputEmail" class="validate" name="email" placeholder="Email" required>
-                                            <label for="inputEmail">Email</label>
-                                        </div>
-                                        <div class="input-field">
-                                            <input type="password" id="inputPassword" class="validate" name="password" placeholder="Password" required>
-                                            <label for="inputPassword">Password</label>
-                                        </div>
-                                        <div class="file-field input-field">
-                                            <div class="btn" style="background-color: #4CAF50; color: #ffffff;">
-                                                <span>Profile Image</span>
-                                                <input type="file" id="inputImage" name="image" required>
-                                            </div>
-                                            <div class="file-path-wrapper">
-                                                <input class="file-path validate" type="text">
-                                            </div>
-                                        </div>
-                                        <button type="submit" class="btn waves-effect waves-light" style="background-color: #4CAF50;">Sign up</button>
-                                    </form>
-                                </div>
-                            </div>
+    <!-- Call-to-Action Section -->
+    <section id="three" class="wrapper style3 special">
+        <div class="inner">
+            <header class="major narrow">
+                <h2>Ready to upgrade your kitchen?</h2>
+                <p>Join us today and start exploring the best kitchenware products available.</p>
+            </header>
+            <ul class="actions">
+                <li><a href="{{ url_for('auth.signup') }}" class="button big alt">Sign Up Now</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Signup Form Section -->
+    <section id="signup-section" class="wrapper style2 special">
+        <div class="inner">
+            <header class="major narrow">
+                <h2>Sign up to get started!</h2>
+                <p>Join our kitchenware community by filling in the form below.</p>
+            </header>
+            <form action="{{ url_for('auth.signup') }}" method="post" enctype="multipart/form-data">
+                <div class="container 75%">
+                    <div class="row uniform 50%">
+                        <div class="6u 12u$(xsmall)">
+                            <input name="name" placeholder="Name" type="text" required>
+                        </div>
+                        <div class="6u$ 12u$(xsmall)">
+                            <input name="email" placeholder="Email" type="email" required>
+                        </div>
+                        <div class="12u$">
+                            <input name="password" placeholder="Password" type="password" required>
+                        </div>
+                        <div class="12u$">
+                            <input name="image" placeholder="Upload Profile Image" type="file" required>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
-    </div> <!-- End of background -->
+                <ul class="actions">
+                    <li><input type="submit" class="special" value="Submit"></li>
+                    <li><input type="reset" class="alt" value="Reset"></li>
+                </ul>
+            </form>
+        </div>
+    </section>
 
-    <!-- Signup icon -->
-    <a href="#signup-section" class="signup-icon" style="position: fixed; bottom: 20px; left: 20px; z-index: 1000; color: #ffffff;"><i class="fas fa-user-plus fa-2x"></i></a>
-
-    <!-- Footer section with inline styles -->
-    <footer class="footer-section" style="background-color: #b3a10500; color: #ffffff; padding: 20px 0; text-align: center;">
-        <div class="container">
-            <p>Connect</p>
-            <a href="https://github.com/Innocentem" target="_blank" style="color: #ffffff; margin: 0 10px;"><i class="fab fa-github"></i></a>
-            <a href="mailto:mwbzinno@gmail.com" style="color: #ffffff;"><i class="fas fa-envelope"></i></a>
+    <!-- Footer Section -->
+    <footer id="footer">
+        <div class="inner">
+            <ul class="icons">
+                <li><a href="https://github.com/Innocentem" target="_blank" class="icon fa-github"><span class="label">GitHub</span></a></li>
+                <li><a href="mailto:mwbzinno@gmail.com" class="icon fa-envelope"><span class="label">Email</span></a></li>
+            </ul>
         </div>
     </footer>
 
-    <!-- External JavaScript libraries -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Copyright -->
+    <div class="copyright">
+        &copy; HomeKitch. All rights reserved.
+    </div>
 
-    <!-- Initialize Materialize components -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var elems = document.querySelectorAll('.sidenav');
-            var instances = M.Sidenav.init(elems);
-        });
-    </script>
+    <!-- External JavaScript Libraries -->
+    <script src="{{ url_for('static', filename='assets/js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/skel.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/util.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/js/main.js') }}"></script>
 </body>
+
 </html>
